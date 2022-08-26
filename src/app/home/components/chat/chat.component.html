@@ -1,0 +1,60 @@
+<ion-header translucent="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="descartar();">
+        <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons >
+    <ion-item lines="none">
+      <ion-label>
+        <h2><b>{{chat.nombrE_S}}</b></h2>
+      </ion-label>
+    </ion-item>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="call" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding #content>
+  <ion-list>
+    <ion-item lines="none" *ngFor="let message of arrayMessage" (click)="presentModal(message);">
+      <div class="content">
+        <div [ngClass]="{'message2': message.iD_U==idu,'message1': message.iD_U!=idu}">
+          <ion-label *ngIf="chat.iD_TS!=1">
+            <h3 *ngIf="message.iD_U==idu" class="nombre"><b>Tu</b></h3>
+            <h3 *ngIf="message.iD_U!=idu" class="nombre"><b>{{devolverUsuario(message.iD_U)}}</b></h3>
+            <h2>{{message.contenidO_M}}</h2>
+          </ion-label>
+          <ion-label *ngIf="chat.iD_TS==1">
+            <h2>{{message.contenidO_M}}</h2>
+          </ion-label>
+          <p class="hora">{{getUltimaConexion(message.fechA_M)}}</p>
+        </div>
+      </div>
+    </ion-item> 
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-item class="ion-no-padding">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-input class="input" placeholder="Escribe algo..." [(ngModel)]="contMessage"></ion-input>
+    <ion-buttons slot="end">
+      <ion-button (click)="newMessage();">
+        <ion-icon slot="icon-only" name="paper-plane"></ion-icon>
+      </ion-button>
+      <!--
+      <ion-button>
+        <ion-icon slot="icon-only" name="mic"></ion-icon>
+      </ion-button>
+      -->
+    </ion-buttons>
+  </ion-item>
+</ion-footer>

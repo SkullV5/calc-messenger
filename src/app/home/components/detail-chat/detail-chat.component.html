@@ -1,0 +1,63 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button (click)="descartar()">
+      <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title> Información del mensaje </ion-title>
+</ion-toolbar>
+<ion-content>
+  
+  <ion-list lines="none">
+    <ion-item lines="none">
+      <div class="content">
+        <div class="message2">
+          <ion-label>
+            <h2>{{mess.contenidO_M}}</h2>
+          </ion-label>
+          <p class="hora">
+            {{getUltimaConexion(mess.fechA_M)}}
+          </p>
+        </div>
+      </div>
+    </ion-item> 
+
+    <ion-list-header *ngIf="leido.length>0">
+      <h4>Leído por:</h4>
+    </ion-list-header>
+    <ion-item lines="none" *ngFor="let contact of leido">
+      <div class="contenFoto">
+        <img alt="user" class="foto" src={{contact.urlfotO_U}}>
+      </div>
+      <ion-label>
+        <h2>{{contact.nombrE_U}}</h2>
+        <p>{{getUltimaConexion(contact.fechA_DEM)}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-list-header *ngIf="entregado.length>0">
+      <h4>Entregado a:</h4>
+    </ion-list-header>
+    <ion-item lines="none" *ngFor="let contact of entregado">
+      <div class="contenFoto">
+        <img alt="user" class="foto" src={{contact.urlfotO_U}}>
+      </div>
+      <ion-label>
+        <h2>{{contact.nombrE_U}}</h2>
+        <p>{{getUltimaConexion(contact.fechA_DEM)}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-list-header *ngIf="enviado.length>0">
+      <h4>Enviado a:</h4>
+    </ion-list-header>
+    <ion-item lines="none" *ngFor="let contact of enviado">
+      <div class="contenFoto">
+        <img alt="user" class="foto" src={{contact.urlfotO_U}}>
+      </div>
+      <ion-label>
+        <h2>{{contact.nombrE_U}}</h2>
+        <p>{{getUltimaConexion(contact.fechA_DEM)}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

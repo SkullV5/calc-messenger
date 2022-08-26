@@ -1,0 +1,40 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button (click)="descartar()">
+      <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title> Contacto </ion-title>
+</ion-toolbar>
+
+<ion-content fullscreen class="centered-item">
+  <div>
+    <img class="card-image" src="{{ user.urlfotO_U }}" />
+  </div>
+  <div class="user-name">
+    <p>{{user.nombrE_U}}</p>
+  </div>
+  <div>
+    <ion-buttons class="buttons-div">
+      <ion-button>
+        <ion-icon slot="icon-only" name="image-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="play-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="mic-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="document-text-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="location-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="link-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+  <div></div>
+</ion-content>

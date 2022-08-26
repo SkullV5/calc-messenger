@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      <h2>¡Regístrate ya!</h2>  
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="descartar();">
+        <ion-icon color="primary" slot="icon-only" name="close-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item lines="none">
+    <div>
+      <div>
+        <h4>Accede a todas las características</h4>
+      </div>
+    </div>
+  </ion-item>
+    
+    <ion-slides pager="true">
+      <ion-slide>
+        <div class="slide">
+          <img class="imagepubli" src="../../../assets/image/calcu.svg" alt="Calculadora científica">
+          <h2>Calculadora científica</h2>
+          <p class="slidecont">
+            Obtenga <b>todas</b> las funciones de una calculadora cintífica en su teléfono.
+          </p>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slide">
+          <img class="imagepubli" src="../../../assets/image/conver.svg" alt="Convertidor de unidades">
+          <h2>Convertidor de unidades</h2>
+            <p class="slidecont">
+              Transforma <b>cualquier unidad</b> en otra del Sistema Internacional de Unidades.
+            </p>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slide">
+          <img class="imagepubli" src="../../../assets/image/vector.svg" alt="Vectores y ecuaciones">
+          <h2>Vectores y ecuaciones</h2>
+            <p class="slidecont">
+              Resuelve de manera <b>rápida y sencilla</b> ecuaciones y grafíca tus vectores.
+            </p>
+        </div>
+      </ion-slide>
+    </ion-slides>
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" [(ngModel)]="user" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="pass" required></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="primary" expand="block" (click)="VerifyCredencial();">Comprar membresía</ion-button>
+      </ion-col>
+    </ion-row>
+</ion-content>

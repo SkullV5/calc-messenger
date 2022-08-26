@@ -1,0 +1,25 @@
+.foto {
+  border-radius: 10px;
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+.enlinea{
+  border-radius: 50%;
+  height: 13px;
+  width: 13px;
+  background-color: #2CC069;
+  border: solid 2px white;
+  bottom:55px;
+  left: 40px;
+  position: relative;
+}
+.contenFoto{
+  padding: 2px;
+  height: 54px;
+}
+ion-searchbar{
+    --border-radius:4px;
+    --background:#F7F7FC;
+}

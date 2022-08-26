@@ -1,0 +1,7 @@
+{
+  "name": "Cal",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

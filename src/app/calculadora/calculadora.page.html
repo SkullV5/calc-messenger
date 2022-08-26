@@ -1,0 +1,188 @@
+
+
+<ion-content>
+  <div class="layout-div">
+    <ion-row class="displaycontent">
+        <ion-label class="display ion-text-right"> {{ display | number : '.0-8'}} </ion-label>
+      
+    </ion-row>
+  <div class="teclado">
+    <ion-row class="row">
+      <ion-col size="3">
+        <ion-button class="operacion" (click)="reset(); iniCodigo();" size="large"  expand="block">
+          AC
+        </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button class="operacion"
+          (click)="resetLastNumber(); VerifyAccess();"
+          size="large"
+          expand="block"
+        >
+          C
+        </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button  class="operacion"
+          (click)="clickOperator('%');concatCodigo('%');"
+          size="large"
+          expand="block"
+        > % </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button class="operacion"
+          (click)="clickOperator('/');concatCodigo('/');"
+          size="large"
+          expand="block"
+        >
+          /
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row class="row">
+      <ion-col size="3">
+        <ion-button
+          (click)="clickNumber(7);concatCodigo('7');"
+          size="large"
+          expand="block"
+        >
+          7
+        </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button
+          (click)="clickNumber(8);concatCodigo('8');"
+          size="large"
+          expand="block"
+        >
+          8
+        </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button
+          (click)="clickNumber(9);concatCodigo('9');"
+          size="large"
+          expand="block"
+        >
+          9
+        </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button class="operacion"
+          (click)="clickOperator('*');concatCodigo('*');"
+          size="large"
+          expand="block"
+        >
+          <ion-icon size="large" name="close"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row class="row">
+      <ion-col size="3">
+        <ion-button
+          (click)="clickNumber(4);concatCodigo('4');"
+          size="large"
+          expand="block"
+        >
+          4
+        </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button
+          (click)="clickNumber(5);concatCodigo('5');"
+          size="large"
+          expand="block"
+        >
+          5
+        </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button
+          (click)="clickNumber(6);concatCodigo('6');"
+          size="large"
+          expand="block"
+        >
+          6
+        </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button class="operacion"
+          (click)="clickOperator('-');concatCodigo('-');"
+          size="large"
+          expand="block"
+        >
+          <ion-icon size="large" name="remove"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row class="row">
+      <ion-col size="3">
+        <ion-button
+          (click)="clickNumber(1);concatCodigo('1');"
+          size="large"
+          expand="block"
+        >
+          1
+        </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button
+          (click)="clickNumber(2);concatCodigo('2');"
+          size="large"
+          expand="block"
+        >
+          2
+        </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button
+          (click)="clickNumber(3);concatCodigo('3');"
+          size="large"
+          expand="block"
+        >
+          3
+        </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button  class="operacion"
+          (click)="clickOperator('+');concatCodigo('+');"
+          size="large"
+          expand="block"
+        >
+          <ion-icon size="large" name="add"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row class="row">
+      <ion-col size="3">
+        <ion-button  (click)="changeSign('+/-')" size="large" expand="block">
+          +/-
+        </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button 
+          (click)="clickNumber(0);concatCodigo('0');"
+          size="large"
+          expand="block"
+        >
+          0
+        </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button  (click)="setDecimal()" size="large" expand="block">
+          .
+        </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button class="operacion" (click)="calculate();" size="large" expand="block">
+          =
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+  </div>
+</ion-content>

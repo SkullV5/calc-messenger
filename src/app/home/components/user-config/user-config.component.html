@@ -1,0 +1,66 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button (click)="descartar()">
+      <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title> Configuraciones </ion-title>
+</ion-toolbar>
+
+<ion-content fullscreen>
+  <div class="centered-item">
+    <img class="card-image" src="{{ user.urlfotO_U }}" />
+  </div>
+  <div class="user-name">
+    <p><b>{{user.nombrE_U}}</b></p>
+  </div>
+  <ion-list class="options-container">
+    <ion-item lines="none" class="options-padding">
+      <h5>Editar usuario</h5>
+      <ion-buttons slot="end">
+        <ion-button slot="end" (click)="mostrarEditUser=!mostrarEditUser">
+          <ion-icon *ngIf="mostrarEditUser" slot="icon-only" name="chevron-down-outline"></ion-icon>
+          <ion-icon *ngIf="!mostrarEditUser" slot="icon-only" name="chevron-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <div *ngIf="mostrarEditUser">
+      <app-edit-user></app-edit-user>
+    </div>
+
+    <ion-item lines="none" class="options-padding">
+      <h5>Cambiar contraseña</h5>
+      <ion-buttons slot="end">
+        <ion-button slot="end" (click)="mostrarNewPassword=!mostrarNewPassword">
+          <ion-icon *ngIf="mostrarNewPassword" slot="icon-only" name="chevron-down-outline"></ion-icon>
+          <ion-icon *ngIf="!mostrarNewPassword" slot="icon-only" name="chevron-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <div *ngIf="mostrarNewPassword">
+      <app-new-password></app-new-password>
+    </div>
+
+    <ion-item lines="none" class="options-padding">
+      <h5>Desactivar cuenta</h5>
+      <ion-buttons slot="end">
+        <ion-button slot="end" (click)="mostrarDeshabilitar=!mostrarDeshabilitar">
+          <ion-icon *ngIf="mostrarDeshabilitar" slot="icon-only" name="chevron-down-outline"></ion-icon>
+          <ion-icon *ngIf="!mostrarDeshabilitar" slot="icon-only" name="chevron-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-card *ngIf="mostrarDeshabilitar">
+      <ion-item>
+        <p>
+          Si deshabilita la cuenta ya no podrá ingresar a la aplicación hasta que un administrador la vuelva a habilitar
+        </p>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button color="danger" (click)="deshabilitar()" expand="block">Deshabilitar cuenta</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-list>
+</ion-content>

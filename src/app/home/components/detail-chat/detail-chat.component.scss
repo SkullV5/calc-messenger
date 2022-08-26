@@ -1,0 +1,33 @@
+.message2{
+    max-width: calc(80% - 70px);
+    background-color: #002DE3;
+    color: #EEF1F4;
+    margin: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 5px;
+    float:right;
+}
+.foto {
+    border-radius: 10px;
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  .contenFoto{
+    padding: 2px;
+    height: 54px;
+  }
+  
+.content{
+    width: 100%;
+}
+
+.hora{
+    width: 100%;
+    text-align: right;
+    margin: 0px;
+    font-size: 12px;
+}

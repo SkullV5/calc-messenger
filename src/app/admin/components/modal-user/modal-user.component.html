@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Agregar usuario
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="guardar();">
+        <ion-icon color="primary" slot="icon-only" name="save-sharp"></ion-icon>
+      </ion-button>
+      <ion-button (click)="descartar();">
+        <ion-icon color="primary" slot="icon-only" name="close-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-item>
+    <ion-label class="normal" position="floating">
+      Nombre:
+    </ion-label>
+    <ion-input  [(ngModel)]="user.nombrE_U" required class="normal" type="text" inputmode="text">
+    </ion-input>
+  </ion-item>
+  <div *ngIf="!edit">
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Usuario:
+      </ion-label>
+      <ion-input  [(ngModel)]="user.usuariO_U" required class="normal" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Contraseña:
+      </ion-label>
+      <ion-input [(ngModel)]="user.contraseniA_U" required class="normal" type="password" inputmode="text">
+      </ion-input>
+    </ion-item>
+  </div>
+  <div *ngIf="edit">
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Usuario:
+      </ion-label>
+      <ion-input readonly="true" [(ngModel)]="user.usuariO_U" required class="normal" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Contraseña:
+      </ion-label>
+      <ion-input readonly="true" [(ngModel)]="user.contraseniA_U" required class="normal" type="password" inputmode="text">
+      </ion-input>
+    </ion-item>
+  </div>
+  <ion-item>
+    <ion-label class="normal">
+      Administrador:
+      <p *ngIf="!user.administrA_U">Este usuario no tendrá acceso a la gestión de usuarios</p>
+    </ion-label>
+    <ion-toggle slot="end" [(ngModel)]="user.administrA_U" color="primary"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label class="normal">
+      Habilitado:
+      <p *ngIf="!user.habilitadO_U">Si dehabilita este usuario, ya no tendrá acceso</p>
+    </ion-label>
+    <ion-toggle slot="end" [(ngModel)]="user.habilitadO_U" color="primary"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label class="normal">
+      Foto:
+    </ion-label>
+    <ion-buttons slot="end">
+      <ion-button>
+        <label for="file-upload">
+          <ion-icon slot="icon-only" name="images"></ion-icon>
+        </label>
+        <!--<input (change)="newImageUpload($event)" id="file-upload" style="display: none" type="file" accept="image/*">--->
+      </ion-button>
+    </ion-buttons>
+    <ion-avatar> <img [src]="user.urlfotO_U"></ion-avatar>
+  </ion-item>
+</ion-content>

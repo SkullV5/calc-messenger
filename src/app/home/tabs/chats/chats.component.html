@@ -1,0 +1,50 @@
+
+  <ion-toolbar>
+    <ion-title>
+      Chats
+    </ion-title>
+  </ion-toolbar>
+
+<ion-fab horizontal="end" slot="fixed" edge="true">
+  <ion-fab-button size="small">
+    <ion-icon name="ellipsis-vertical"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="start">
+    <ion-fab-button color="light" (click)="authService.logOut();">
+      <ion-icon class="icoCal" name="calculator"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button color="light" (click)="presentModalPerfil()">
+      <ion-avatar>
+        <img src="{{user.urlfotO_U}}">
+      </ion-avatar>
+    </ion-fab-button>
+    <ion-fab-button *ngIf="user.administrA_U" color="light" (click)="admin()">
+      <ion-icon class="icoCal" name="settings"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
+
+<ion-content fullscreen>
+
+  <ion-searchbar  mode="ios"
+    placeholder="Buscar"
+    [(ngModel)]="searchTerm"
+    show-clear-button="focus">
+  </ion-searchbar>
+
+  <ion-list>
+    <ion-item lines="none" *ngFor="let chat of arrayChat | filter:searchTerm" (click)="presentModal(chat);"> 
+      <img alt="user" class="foto" src={{chat.urlfotO_S}}>
+      <ion-label>
+        <h3>{{chat.nombrE_S}}</h3>
+        <p>{{chat.contenidO_M}}</p>
+      </ion-label>
+      <ion-note class="note  ion-no-padding" slot="end">
+        <p>{{getUltimaConexion(chat.fechA_M)}}</p>
+        <p class="notiMessaje" *ngIf="chat.nummensajessinleeR_S>0">
+          {{chat.nummensajessinleeR_S}}
+        </p>
+      </ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

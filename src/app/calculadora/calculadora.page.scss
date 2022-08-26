@@ -1,0 +1,56 @@
+.layout-div {
+  background-color: white;
+  padding-top: 2em !important;
+  display: grid;
+  height: 100%;
+  width: 100%;
+}
+
+ion-button {
+  font-size: 1.6em;
+  color: rgba(61, 61, 61, 1);
+  height: 100% !important;
+  --border-radius: 50%;
+  --background: white;
+  --box-shadow:none;
+}
+
+.operacion{
+  --border-radius: 15px;
+  --background: #EAF0F4;
+}
+
+.row{
+  height: 25vw !important;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+}
+ion-col{
+  padding-left: 3vw;
+  padding-right: 3vw;
+}
+.teclado{
+  height: calc(125vw + 1em);
+  background: rgb(207,207,220);
+  background: linear-gradient(70deg, rgba(207,207,220,1) 0%, rgba(245,245,247,1) 80%);
+  padding-block-end:1em;
+}
+
+@font-face {
+  font-family: "deseg7";
+  src: url("../../assets/fonts/DSEG7Classic-Bold.woff") format("woff");
+}
+.displaycontent{
+  height: calc(100vh - 125vw  - 3em);
+  max-width: 100vw;
+}
+.display {
+  font-size: 10vh;
+  color: rgba(61, 61, 61, 1);
+  font-family: "deseg7";
+  text-align: right !important;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}

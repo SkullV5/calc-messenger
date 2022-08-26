@@ -1,0 +1,134 @@
+
+  <ion-toolbar>
+    <ion-title>
+      Admin
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="chat()">
+        <ion-icon slot="icon-only" name="chatbox-ellipses"></ion-icon>
+      </ion-button>
+      <ion-button (click)="authService.logOut();">
+        <ion-icon slot="icon-only" name="calculator"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+<ion-content class="ion-padding ">
+  <ion-segment mode="ios" color="primary" [(ngModel)]="type" scrollable>
+    <ion-segment-button value="user">
+      <ion-label>Usuarios</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="config">
+      <ion-label>Configuración</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+ 
+  <div [ngSwitch]="type">
+    <ion-list *ngSwitchCase="'user'">
+      <ion-item class="ion-no-padding conBus" lines="none">
+        <ion-searchbar class="ion-no-padding" mode="ios"
+                  placeholder="Buscar"
+                  [(ngModel)]="searchTerm"
+                  show-clear-button="focus">
+        </ion-searchbar>
+        <ion-buttons slot="end">
+          <ion-button slot="end" (click)="editar=false; nuevo();">
+            <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <ion-item lines="none" class="conBus">
+        <h6><b>Usuarios habilitados</b></h6>
+        <ion-buttons slot="end">
+          <ion-button slot="end" (click)="mostrarHabilitados=!mostrarHabilitados">
+            <ion-icon *ngIf="mostrarHabilitados" slot="icon-only" name="chevron-down-outline"></ion-icon>
+            <ion-icon *ngIf="!mostrarHabilitados" slot="icon-only" name="chevron-back-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <div *ngIf="mostrarHabilitados">
+        <ion-list class="ion-no-padding" *ngFor="let user of arrayUser | filter:searchTerm">
+          <ion-item class="ion-no-padding conBus" lines="none" *ngIf="user.habilitadO_U">
+            <ion-avatar slot="start">
+              <img src={{user.urlfotO_U}} />
+            </ion-avatar>
+            <ion-label>
+              <h2>{{user.nombrE_U}}</h2>
+              <p>{{getUltimaConexion(user.ultimaconeX_U)}}</p>
+            </ion-label> 
+            <ion-buttons slot="end">
+                <ion-icon name="create-sharp" (click)="editar=true; useraux=user; presentModal();"></ion-icon>
+            </ion-buttons>
+          </ion-item>
+        </ion-list>
+      </div>
+      
+      <ion-item lines="none" class="conBus">
+        <h6><b>Usuarios deshabilitados</b></h6>
+        <ion-buttons slot="end">
+          <ion-button slot="end" (click)="mostrarDeshabilitados=!mostrarDeshabilitados">
+            <ion-icon *ngIf="mostrarDeshabilitados" slot="icon-only" name="chevron-down-outline"></ion-icon>
+            <ion-icon *ngIf="!mostrarDeshabilitados" slot="icon-only" name="chevron-back-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <div *ngIf="mostrarDeshabilitados">
+        <ion-list class="ion-no-padding" *ngFor="let user of arrayUser | filter:searchTerm">
+          <ion-item class="ion-no-padding conBus" lines="none" *ngIf="!user.habilitadO_U">
+            <ion-avatar slot="start">
+              <img src={{user.urlfotO_U}} />
+            </ion-avatar>
+            <ion-label>
+              <h2>{{user.nombrE_U}}</h2>
+              <p>{{getUltimaConexion(user.ultimaconeX_U)}}</p>
+            </ion-label> 
+            <ion-buttons slot="end">
+                <ion-icon name="create-sharp" (click)="editar=true; useraux=user; presentModal();"></ion-icon>
+            </ion-buttons>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'config'">
+      <ion-item>
+        <ion-label>
+          <h2><b>Configuración de código</b></h2>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button (click)="updateCode();">
+            <ion-icon color="primary" slot="icon-only" name="save-sharp"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          Contaseña:
+        </ion-label>
+        <ion-input [(ngModel)]="pass" required class="normal" type="password" inputmode="text">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          Código actual:
+        </ion-label>
+        <ion-input [(ngModel)]="code" required class="normal" type="password" inputmode="text">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          Nuevo código:
+        </ion-label>
+        <ion-input [(ngModel)]="newcode1" required class="normal" type="password" inputmode="text">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          Confirmación del código:
+        </ion-label>
+        <ion-input [(ngModel)]="newcode2" required class="normal" type="password" inputmode="text">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

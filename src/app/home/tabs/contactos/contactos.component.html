@@ -1,0 +1,28 @@
+
+  <ion-toolbar>
+    <ion-title>
+      Contactos
+    </ion-title>
+  </ion-toolbar>
+
+<ion-content fullscreen> 
+
+  <ion-searchbar  mode="ios"
+            placeholder="Buscar"
+            [(ngModel)]="searchTerm"
+            show-clear-button="focus">
+  </ion-searchbar>
+  <ion-list lines="none" class="ion-no-padding" *ngFor="let contact of arrayContact | filter:searchTerm">
+    <ion-item lines="none" *ngIf="contact.iD_U!=user.iD_U">
+      <div class="contenFoto" (click)="presentModalDetalleContacto(contact);">
+        <img alt="user" class="foto" src={{contact.urlfotO_U}}>
+        <div *ngIf="contact.iD_EU==1" class="enlinea"></div>
+      </div>
+      <ion-label (click)="getChatByContact(contact)" >
+        <h2>{{contact.nombrE_U}}</h2>
+        <p *ngIf="contact.iD_EU==2" >Última conexión: {{getUltimaConexion(contact.ultimaconeX_U)}}</p>
+        <p *ngIf="contact.iD_EU==1" >En línea</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

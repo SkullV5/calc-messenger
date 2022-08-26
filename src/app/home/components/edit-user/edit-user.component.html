@@ -1,0 +1,19 @@
+<ion-card>
+  <ion-item lines="full">
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="pass" required></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label position="floating">Nuevo nombre de usuario</ion-label>
+    <ion-input type="password" [(ngModel)]="newUserName" required></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label position="floating">Confirmar nombre de usuario</ion-label>
+    <ion-input type="password" [(ngModel)]="verifyNewUserName" required></ion-input>
+  </ion-item>
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit" color="primary" expand="block" (click)="changeUserName();">Confirmar</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-card>

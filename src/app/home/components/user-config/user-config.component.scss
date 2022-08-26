@@ -1,0 +1,38 @@
+.centered-item {
+  margin: auto;
+  text-align: center;
+}
+
+.card-image {
+  margin-top: 4%;
+  border-radius: 12%;
+  height: auto;
+  width: 50vw;
+  border: 8px solid rgba(245, 245, 245, 1);
+}
+
+.camera-button {
+  --background: rgba(245, 245, 245, 1);
+  --box-shadow: none;
+  --border-radius: 100%;
+}
+
+.user-name {
+  font-weight: 350;
+  margin-top: -2%;
+  margin: auto;
+  text-align: center;
+}
+
+.options-container {
+  margin-top: 14%;
+}
+
+.options-padding {
+  --padding-end: 0px;
+  --inner-padding-end: 0px;
+}
+
+ion-content {
+  color: rgba(15, 24, 40, 1);
+}
